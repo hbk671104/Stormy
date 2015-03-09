@@ -77,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Ucm-1o-90v">
-                                <rect key="frame" x="150" y="190" width="20" height="20"/>
+                                <rect key="frame" x="150" y="184" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFv-74-6Xp">
                                 <rect key="frame" x="81" y="99" width="159" height="26"/>
@@ -102,7 +102,7 @@
                             <constraint firstItem="1vT-kk-k1W" firstAttribute="top" secondItem="29C-Hk-OTl" secondAttribute="bottom" constant="7" id="YKD-U0-Zur"/>
                             <constraint firstItem="QYx-9m-mpQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="47" id="cp9-9z-ewW"/>
                             <constraint firstAttribute="centerY" secondItem="FF8-p3-SlR" secondAttribute="centerY" id="dSt-aK-Lvb"/>
-                            <constraint firstItem="Ucm-1o-90v" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="170" id="dVS-Ev-Bkk"/>
+                            <constraint firstItem="Ucm-1o-90v" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="164" id="dVS-Ev-Bkk"/>
                             <constraint firstItem="QYx-9m-mpQ" firstAttribute="top" secondItem="lKz-qc-4jw" secondAttribute="bottom" constant="7" id="eDy-l3-pVb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1vT-kk-k1W" secondAttribute="trailing" constant="35" id="eQV-4g-RZ3"/>
                             <constraint firstAttribute="centerX" secondItem="sLs-C6-UWA" secondAttribute="centerX" constant="-0.5" id="eSB-XT-rD8"/>
