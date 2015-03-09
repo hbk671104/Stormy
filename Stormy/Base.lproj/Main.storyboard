@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FF8-p3-SlR">
-                                <rect key="frame" x="35" y="198" width="251" height="172"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FF8-p3-SlR">
+                                <rect key="frame" x="77" y="198" width="167" height="172"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="150"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -59,16 +59,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFv-74-6Xp">
+                                <rect key="frame" x="113" y="55" width="159" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy-night" translatesAutoresizingMaskIntoConstraints="NO" id="VAH-Yu-VG4">
-                                <rect key="frame" x="55" y="46" width="46" height="43"/>
+                                <rect key="frame" x="59" y="46" width="46" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="HFd-DA-U52"/>
                                     <constraint firstAttribute="width" constant="46" id="cr2-Co-qLs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State College, PA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFv-74-6Xp">
-                                <rect key="frame" x="109" y="55" width="166" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="°C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="721-H2-wRJ">
+                                <rect key="frame" x="236" y="319" width="23" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -80,8 +86,8 @@
                             <constraint firstItem="sLs-C6-UWA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="111" id="6jx-XM-1zY"/>
                             <constraint firstItem="lKz-qc-4jw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="39" id="CHd-JD-e0I"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lKz-qc-4jw" secondAttribute="bottom" constant="153" id="Lnx-Oa-la0"/>
-                            <constraint firstAttribute="centerX" secondItem="FF8-p3-SlR" secondAttribute="centerX" constant="-0.5" id="SFa-BA-Gmh"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="29C-Hk-OTl" secondAttribute="bottom" constant="154" id="UVI-g0-yQX"/>
+                            <constraint firstItem="721-H2-wRJ" firstAttribute="leading" secondItem="FF8-p3-SlR" secondAttribute="trailing" constant="-8" id="X7c-GS-5rA"/>
                             <constraint firstItem="1vT-kk-k1W" firstAttribute="top" secondItem="29C-Hk-OTl" secondAttribute="bottom" constant="7" id="YKD-U0-Zur"/>
                             <constraint firstItem="QYx-9m-mpQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="47" id="cp9-9z-ewW"/>
                             <constraint firstItem="gFv-74-6Xp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="35" id="cr7-qx-nVk"/>
@@ -90,11 +96,21 @@
                             <constraint firstAttribute="centerX" secondItem="sLs-C6-UWA" secondAttribute="centerX" constant="-0.5" id="eSB-XT-rD8"/>
                             <constraint firstItem="gFv-74-6Xp" firstAttribute="leading" secondItem="VAH-Yu-VG4" secondAttribute="trailing" constant="8" id="fD2-G8-vDI"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YTu-s4-By7" secondAttribute="bottom" constant="58" id="l7E-Y4-COn"/>
+                            <constraint firstAttribute="centerX" secondItem="FF8-p3-SlR" secondAttribute="centerX" constant="-0.5" id="laz-vL-v3c"/>
                             <constraint firstItem="VAH-Yu-VG4" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="26" id="qK6-5X-ORs"/>
                             <constraint firstAttribute="centerY" secondItem="FF8-p3-SlR" secondAttribute="centerY" id="qhS-vn-QGD"/>
                             <constraint firstAttribute="centerX" secondItem="YTu-s4-By7" secondAttribute="centerX" constant="-0.5" id="ssD-MG-XQO"/>
+                            <constraint firstItem="721-H2-wRJ" firstAttribute="top" secondItem="FF8-p3-SlR" secondAttribute="bottom" constant="-51" id="tw8-Y6-fPK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="sLs-C6-UWA" id="ING-MG-a3S"/>
+                        <outlet property="humidityLabel" destination="QYx-9m-mpQ" id="Ehl-vJ-HEB"/>
+                        <outlet property="iconView" destination="VAH-Yu-VG4" id="Aap-Pn-x4m"/>
+                        <outlet property="precipitationLabel" destination="1vT-kk-k1W" id="Rap-bq-WBf"/>
+                        <outlet property="summaryLabel" destination="YTu-s4-By7" id="Z2H-zd-w38"/>
+                        <outlet property="temperatureLabel" destination="FF8-p3-SlR" id="OCj-pm-t2r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

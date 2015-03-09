@@ -12,19 +12,23 @@ import UIKit
 struct Current {
 	
 	var currentTime: String?
-	var temperature: Int
+	var temperature: Int?
 	var humidity: Double
 	var precipProbability: Double
 	var summary: String
 	var icon: UIImage?
 	
 	init(weatherDictionary: NSDictionary) {
+		
 		let currentWeather = weatherDictionary["currently"] as NSDictionary
-
-		temperature = currentWeather["temperature"] as Int
+		
 		humidity = currentWeather["humidity"] as Double
 		precipProbability = currentWeather["precipProbability"] as Double
 		summary = currentWeather["summary"] as String
+		
+		let tempInFahrenheit = currentWeather["temperature"] as Int
+		temperature = fahrenheitToCelsius(tempInFahrenheit)
+		println("\(tempInFahrenheit)")
 		
 		let currentTimeIntValue = currentWeather["time"] as Int
 		currentTime = dateStringFromUnixTime(currentTimeIntValue)
@@ -35,6 +39,7 @@ struct Current {
 	}
 	
 	func dateStringFromUnixTime(unixTime: Int) -> String {
+		
 		let timeInSeconds = NSTimeInterval(unixTime)
 		let weatherDate = NSDate(timeIntervalSince1970: timeInSeconds)
 		
@@ -42,9 +47,11 @@ struct Current {
 		dateFormatter.timeStyle = .ShortStyle
 		
 		return dateFormatter.stringFromDate(weatherDate)
+		
 	}
 	
 	func weatherIconFromString(stringIcon: String) -> UIImage {
+		
 		var imageName: String
 		
 		switch stringIcon {
@@ -73,6 +80,12 @@ struct Current {
 		}
 		
 		return UIImage(named: imageName)!
+		
+	}
+	
+	func fahrenheitToCelsius(fahrenhietTemp: Int) -> Int {
+
+		return (fahrenhietTemp-32)*5/9
 		
 	}
 	

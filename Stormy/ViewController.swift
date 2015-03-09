@@ -10,6 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var iconView: UIImageView!
+	@IBOutlet weak var currentTimeLabel: UILabel!
+	@IBOutlet weak var temperatureLabel: UILabel!
+	@IBOutlet weak var humidityLabel: UILabel!
+	@IBOutlet weak var precipitationLabel: UILabel!
+	@IBOutlet weak var summaryLabel: UILabel!
+	
+	
 	private let apiKey = "f038070bd7ace19b10621d8380c2fb5d"
 	
 	override func viewDidLoad() {
@@ -27,7 +35,14 @@ class ViewController: UIViewController {
 				let weatherDictionary = NSJSONSerialization.JSONObjectWithData(dataObject!, options: nil, error: nil) as NSDictionary
 				
 				let currentWeather = Current(weatherDictionary: weatherDictionary)
-				println(currentWeather.currentTime!)
+				dispatch_async(dispatch_get_main_queue(), { () -> Void in
+					self.temperatureLabel.text = "\(currentWeather.temperature!)"
+					self.iconView.image = currentWeather.icon!
+					self.currentTimeLabel.text = "At \(currentWeather.currentTime!) it is"
+					self.humidityLabel.text = "\(currentWeather.humidity)"
+					self.precipitationLabel.text = "\(currentWeather.precipProbability)"
+					self.summaryLabel.text = "\(currentWeather.summary)"
+				})
 			}
 				
 		})
