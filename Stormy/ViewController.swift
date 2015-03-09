@@ -18,6 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var precipitationLabel: UILabel!
 	@IBOutlet weak var summaryLabel: UILabel!
 	@IBOutlet weak var currentLocationLabel: UILabel!
+	@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 	
 	private let apiKey = "f038070bd7ace19b10621d8380c2fb5d"
 	let locationManager = CLLocationManager()
@@ -35,6 +36,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			
 			self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
 			self.locationManager.delegate = self
+			
+			// Start updating location
 			self.locationManager.startUpdatingLocation()
 			
 		}
@@ -49,6 +52,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	// MARK:
 	
 	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+		
+		// Start animating
+		loadingIndicator.startAnimating()
 		
 		// Optional binding
 		if let location = manager.location {
@@ -120,7 +126,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 						precip: "\(currentWeather.precipProbability)",
 						summary: "\(currentWeather.summary)")
 					
+					// Stop indicator animation
+					self.loadingIndicator.stopAnimating()
+					
 				})
+				
+			} else {
+				
+				let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connection failed", preferredStyle: .Alert)
+				
+				let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+				let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+				
+				networkIssueController.addAction(okButton)
+				networkIssueController.addAction(cancelButton)
+				
+				self.presentViewController(networkIssueController, animated: true, completion: nil)
 				
 			}
 			
@@ -138,6 +159,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.humidityLabel.text = humidity
 		self.precipitationLabel.text = precip
 		self.summaryLabel.text = summary
+		
+	}
+	
+	@IBAction func reloadingData(sender: AnyObject) {
+		
+		self.locationManager.startUpdatingLocation()
 		
 	}
 	
