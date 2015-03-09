@@ -10,17 +10,20 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-
+	
 	@IBOutlet weak var iconView: UIImageView!
 	@IBOutlet weak var currentTimeLabel: UILabel!
 	@IBOutlet weak var temperatureLabel: UILabel!
 	@IBOutlet weak var humidityLabel: UILabel!
 	@IBOutlet weak var precipitationLabel: UILabel!
 	@IBOutlet weak var summaryLabel: UILabel!
+	@IBOutlet weak var currentLocationLabel: UILabel!
 	
 	private let apiKey = "f038070bd7ace19b10621d8380c2fb5d"
 	let locationManager = CLLocationManager()
 	let sharedSession = NSURLSession.sharedSession()
+	
+	// MARK:
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -29,9 +32,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		// Location manager config
 		self.locationManager.requestWhenInUseAuthorization()		
 		if CLLocationManager.locationServicesEnabled() {
+			
 			self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
 			self.locationManager.delegate = self
 			self.locationManager.startUpdatingLocation()
+			
 		}
 		
 	}
@@ -41,6 +46,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		// Dispose of any resources that can be recreated.
 	}
 
+	// MARK:
+	
 	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
 		
 		// Optional binding
@@ -54,11 +61,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			// Configure requestURL based on lat and long
 			var requestURL = configureRequestURL(coordinate.latitude, long: coordinate.longitude)
 			
+			updateCurrentLocality(location)
 			retrieveWeatherData(requestURL)
 			
 		}
 		
 	}
+	
+	func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+		
+		println("Error: " + error.localizedDescription)
+		
+	}
+	
+	// MARK:
 	
 	func configureRequestURL(lat: Double, long: Double) -> NSURL {
 		
@@ -66,6 +82,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		let forecastURL = NSURL(string: "\(lat),\(long)", relativeToURL: baseURL)
 		
 		return forecastURL!
+		
+	}
+	
+	func updateCurrentLocality(location: CLLocation){
+		
+		CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+	
+			if placemarks.count > 0 {
+				
+				let placemark: CLPlacemark = placemarks[0] as CLPlacemark
+				self.currentLocationLabel.text = placemark.locality + ", " + placemark.administrativeArea
+				
+			}
+			
+ 		})
 		
 	}
 	
@@ -109,6 +140,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.summaryLabel.text = summary
 		
 	}
-
+	
 }
 

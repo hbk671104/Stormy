@@ -28,7 +28,6 @@ struct Current {
 		
 		let tempInFahrenheit = currentWeather["temperature"] as Int
 		temperature = fahrenheitToCelsius(tempInFahrenheit)
-		println("\(tempInFahrenheit)")
 		
 		let currentTimeIntValue = currentWeather["time"] as Int
 		currentTime = dateStringFromUnixTime(currentTimeIntValue)

@@ -104,6 +104,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentLocationLabel" destination="gFv-74-6Xp" id="NUe-G5-q64"/>
                         <outlet property="currentTimeLabel" destination="sLs-C6-UWA" id="ING-MG-a3S"/>
                         <outlet property="humidityLabel" destination="QYx-9m-mpQ" id="Ehl-vJ-HEB"/>
                         <outlet property="iconView" destination="VAH-Yu-VG4" id="Aap-Pn-x4m"/>
