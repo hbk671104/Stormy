@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreLocation
+import Spring
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	@IBOutlet weak var iconView: UIImageView!
 	@IBOutlet weak var currentTimeLabel: UILabel!
-	@IBOutlet weak var temperatureLabel: UILabel!
+	@IBOutlet weak var temperatureLabel: SpringLabel!
 	@IBOutlet weak var humidityLabel: UILabel!
 	@IBOutlet weak var visibilityLabel: UILabel!
 	@IBOutlet weak var summaryLabel: UILabel!
@@ -29,6 +30,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		// Spring config 
+		self.temperatureLabel.animation = "zoomIn"
+		self.temperatureLabel.curve = "linear"
+		self.temperatureLabel.duration = 1.5
 		
 		// Location manager config
 		self.locationManager.requestWhenInUseAuthorization()		
@@ -159,6 +165,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.humidityLabel.text = humidity
 		self.visibilityLabel.text = visi
 		self.summaryLabel.text = summary
+		
+		self.temperatureLabel.animate()
 		
 	}
 	
