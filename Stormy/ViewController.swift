@@ -21,9 +21,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var currentLocationLabel: UILabel!
 	@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 	
+	/// Forecast API Key
 	private let apiKey = "f038070bd7ace19b10621d8380c2fb5d"
+	/// Location Manager
 	let locationManager = CLLocationManager()
+	/// URL Shared Session
 	let sharedSession = NSURLSession.sharedSession()
+	/// Boolean value indicate whether the user location has been acquired or not
+	var getLocation: Bool = false
 	
 	// MARK:
 	
@@ -54,27 +59,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
 		
-		// Start animating
-		loadingIndicator.startAnimating()
-		
-		// Optional binding
-		if let location = manager.location {
+		if !self.getLocation {
+
+			// Start animating
+			loadingIndicator.startAnimating()
 			
-			let coordinate = location.coordinate
-			
-			// Stop location update, just to save some battery
-			self.locationManager.stopUpdatingLocation()
-			
-			// Configure requestURL based on lat and long
-			var requestURL = configureRequestURL(coordinate.latitude, long: coordinate.longitude)
-			
-			updateCurrentLocality(location)
-			retrieveWeatherData(requestURL)
-			
-		} else {
-			
-			showErrorAlert("Unable to determine your location")
-			
+			// Optional binding
+			if let location = manager.location {
+				
+				// Get location already
+				self.getLocation = true
+				
+				// Retrieve coordinate
+				let coordinate = location.coordinate
+				
+				// Stop location update, just to save some battery
+				self.locationManager.stopUpdatingLocation()
+				
+				// Configure requestURL based on lat and long
+				var requestURL = configureRequestURL(coordinate.latitude, long: coordinate.longitude)
+				
+				updateCurrentLocality(location)
+				retrieveWeatherData(requestURL)
+				
+			} else {
+				
+				showErrorAlert("Unable to determine your location")
+				
+			}
+				
 		}
 		
 	}
@@ -192,6 +205,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	@IBAction func reloadingData(sender: AnyObject) {
 		
+		getLocation = false
 		self.locationManager.startUpdatingLocation()
 		
 	}
