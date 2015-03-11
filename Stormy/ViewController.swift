@@ -185,6 +185,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		
 		self.temperatureLabel.animation = "zoomIn"
 		self.temperatureLabel.curve = "linear"
+		self.temperatureLabel.force = 2.0
 		self.temperatureLabel.duration = 1.0
 		
 	}
