@@ -14,7 +14,7 @@ struct Current {
 	var currentTime: String?
 	var temperature: Int?
 	var humidity: Double
-	var precipProbability: Double
+	var visibility: Double
 	var summary: String
 	var icon: UIImage?
 	
@@ -23,7 +23,7 @@ struct Current {
 		let currentWeather = weatherDictionary["currently"] as NSDictionary
 		
 		humidity = currentWeather["humidity"] as Double
-		precipProbability = currentWeather["precipProbability"] as Double
+		visibility = currentWeather["visibility"] as Double
 		summary = currentWeather["summary"] as String
 		
 		let tempInFahrenheit = currentWeather["temperature"] as Int

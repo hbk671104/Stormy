@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -33,20 +33,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAIN?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Hk-OTl">
-                                <rect key="frame" x="230" y="400" width="35" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VISIBILITY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Hk-OTl">
+                                <rect key="frame" x="207" y="400" width="58" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.88" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-9m-mpQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYx-9m-mpQ">
                                 <rect key="frame" x="63" y="422" width="43" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.70" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vT-kk-k1W">
-                                <rect key="frame" x="226" y="421" width="43" height="26"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -85,6 +79,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.70" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vT-kk-k1W">
+                                <rect key="frame" x="215" y="422" width="43" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -99,12 +99,12 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="29C-Hk-OTl" secondAttribute="bottom" constant="154" id="UVI-g0-yQX"/>
                             <constraint firstItem="gFv-74-6Xp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="79" id="Ut4-xJ-RDI"/>
                             <constraint firstItem="721-H2-wRJ" firstAttribute="leading" secondItem="FF8-p3-SlR" secondAttribute="trailing" constant="2" id="X7c-GS-5rA"/>
-                            <constraint firstItem="1vT-kk-k1W" firstAttribute="top" secondItem="29C-Hk-OTl" secondAttribute="bottom" constant="7" id="YKD-U0-Zur"/>
+                            <constraint firstItem="1vT-kk-k1W" firstAttribute="top" secondItem="29C-Hk-OTl" secondAttribute="bottom" constant="8" id="YKD-U0-Zur"/>
                             <constraint firstItem="QYx-9m-mpQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="47" id="cp9-9z-ewW"/>
                             <constraint firstAttribute="centerY" secondItem="FF8-p3-SlR" secondAttribute="centerY" id="dSt-aK-Lvb"/>
                             <constraint firstItem="Ucm-1o-90v" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="164" id="dVS-Ev-Bkk"/>
                             <constraint firstItem="QYx-9m-mpQ" firstAttribute="top" secondItem="lKz-qc-4jw" secondAttribute="bottom" constant="7" id="eDy-l3-pVb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1vT-kk-k1W" secondAttribute="trailing" constant="35" id="eQV-4g-RZ3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1vT-kk-k1W" secondAttribute="trailing" constant="46" id="eQV-4g-RZ3"/>
                             <constraint firstAttribute="centerX" secondItem="sLs-C6-UWA" secondAttribute="centerX" constant="-0.5" id="eSB-XT-rD8"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YTu-s4-By7" secondAttribute="bottom" constant="53" id="l7E-Y4-COn"/>
                             <constraint firstAttribute="centerX" secondItem="FF8-p3-SlR" secondAttribute="centerX" constant="-0.5" id="laz-vL-v3c"/>
@@ -118,9 +118,9 @@
                         <outlet property="humidityLabel" destination="QYx-9m-mpQ" id="Ehl-vJ-HEB"/>
                         <outlet property="iconView" destination="VAH-Yu-VG4" id="Aap-Pn-x4m"/>
                         <outlet property="loadingIndicator" destination="Ucm-1o-90v" id="yhp-kz-g5y"/>
-                        <outlet property="precipitationLabel" destination="1vT-kk-k1W" id="Rap-bq-WBf"/>
                         <outlet property="summaryLabel" destination="YTu-s4-By7" id="Z2H-zd-w38"/>
                         <outlet property="temperatureLabel" destination="FF8-p3-SlR" id="OCj-pm-t2r"/>
+                        <outlet property="visibilityLabel" destination="1vT-kk-k1W" id="fZ2-qg-IF1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -15,7 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var currentTimeLabel: UILabel!
 	@IBOutlet weak var temperatureLabel: UILabel!
 	@IBOutlet weak var humidityLabel: UILabel!
-	@IBOutlet weak var precipitationLabel: UILabel!
+	@IBOutlet weak var visibilityLabel: UILabel!
 	@IBOutlet weak var summaryLabel: UILabel!
 	@IBOutlet weak var currentLocationLabel: UILabel!
 	@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -123,7 +123,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 						image: currentWeather.icon!,
 						currentTime: "At \(currentWeather.currentTime!) it is",
 						humidity: "\(currentWeather.humidity)",
-						precip: "\(currentWeather.precipProbability)",
+						visi: "\(currentWeather.visibility)",
 						summary: "\(currentWeather.summary)")
 					
 					// Stop indicator animation
@@ -151,13 +151,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	}
 	
-	func updateWeatherInterface(temp: String, image: UIImage, currentTime: String, humidity: String, precip: String, summary: String) {
+	func updateWeatherInterface(temp: String, image: UIImage, currentTime: String, humidity: String, visi: String, summary: String) {
 		
 		self.temperatureLabel.text = temp
 		self.iconView.image = image
 		self.currentTimeLabel.text = currentTime
 		self.humidityLabel.text = humidity
-		self.precipitationLabel.text = precip
+		self.visibilityLabel.text = visi
 		self.summaryLabel.text = summary
 		
 	}
