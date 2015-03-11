@@ -31,11 +31,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		
-		// Spring config 
-		self.temperatureLabel.animation = "zoomIn"
-		self.temperatureLabel.curve = "linear"
-		self.temperatureLabel.duration = 1.5
-		
 		// Location manager config
 		self.locationManager.requestWhenInUseAuthorization()		
 		if CLLocationManager.locationServicesEnabled() {
@@ -78,7 +73,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			
 		} else {
 			
-			showErrorAlert("Unable to determine your location:(")
+			showErrorAlert("Unable to determine your location")
 			
 		}
 		
@@ -86,7 +81,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	
 	func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
 		
-		showErrorAlert("Location request failed:(")
+		showErrorAlert("Location request failed")
 		
 	}
 	
@@ -112,7 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				
 			} else {
 				
-				self.showErrorAlert("Reverse geocoding failed:(")
+				self.showErrorAlert("Reverse geocoding failed")
 				
 			}
 			
@@ -147,7 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				
 			} else {
 				
-				self.showErrorAlert("Unable to load data. Connection failed:(")
+				self.showErrorAlert("Unable to load data. Connection failed")
 				
 			}
 			
@@ -166,6 +161,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.visibilityLabel.text = visi
 		self.summaryLabel.text = summary
 		
+		// Config and animate
+		configTempLabelAnimation()
 		self.temperatureLabel.animate()
 		
 	}
@@ -181,6 +178,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		networkIssueController.addAction(cancelButton)
 		
 		self.presentViewController(networkIssueController, animated: true, completion: nil)
+		
+	}
+	
+	func configTempLabelAnimation() {
+		
+		self.temperatureLabel.animation = "zoomIn"
+		self.temperatureLabel.curve = "linear"
+		self.temperatureLabel.duration = 1.0
 		
 	}
 	
