@@ -70,13 +70,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 			updateCurrentLocality(location)
 			retrieveWeatherData(requestURL)
 			
+		} else {
+			
+			showErrorAlert("Unable to determine your location:(")
+			
 		}
 		
 	}
 	
 	func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
 		
-		println("Error: " + error.localizedDescription)
+		showErrorAlert("Location request failed:(")
 		
 	}
 	
@@ -99,6 +103,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				
 				let placemark: CLPlacemark = placemarks[0] as CLPlacemark
 				self.currentLocationLabel.text = placemark.locality + ", " + placemark.administrativeArea
+				
+			} else {
+				
+				self.showErrorAlert("Reverse geocoding failed:(")
 				
 			}
 			
@@ -133,15 +141,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				
 			} else {
 				
-				let networkIssueController = UIAlertController(title: "Error", message: "Unable to load data. Connection failed", preferredStyle: .Alert)
-				
-				let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-				let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-				
-				networkIssueController.addAction(okButton)
-				networkIssueController.addAction(cancelButton)
-				
-				self.presentViewController(networkIssueController, animated: true, completion: nil)
+				self.showErrorAlert("Unable to load data. Connection failed:(")
 				
 			}
 			
@@ -159,6 +159,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 		self.humidityLabel.text = humidity
 		self.visibilityLabel.text = visi
 		self.summaryLabel.text = summary
+		
+	}
+	
+	func showErrorAlert(message: String) {
+		
+		let networkIssueController = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+		
+		let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+		let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+		
+		networkIssueController.addAction(okButton)
+		networkIssueController.addAction(cancelButton)
+		
+		self.presentViewController(networkIssueController, animated: true, completion: nil)
 		
 	}
 	
